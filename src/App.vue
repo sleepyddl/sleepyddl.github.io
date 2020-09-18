@@ -1,32 +1,37 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <Menu class="menu" />
+    <router-view />
   </div>
 </template>
-
+<script>
+import Menu from "@/components/Menu.vue";
+export default {
+  components: { Menu },
+};
+</script>
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+.content {
+  display: flex;
+  margin: 0 auto;
+  padding: 50px 20px;
+  width: 1200px;
+  min-height: 800px;
+  box-sizing: border-box;
+  .left {
+    width: 220px;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  .right {
+    flex: 1;
+    padding: 5px 25px;
+    box-sizing: border-box;
   }
 }
 </style>
