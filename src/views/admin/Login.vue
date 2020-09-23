@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { login } from "@/request/api.js";
 export default {
   name: "Login",
   data() {
@@ -17,11 +18,14 @@ export default {
       password: "",
     };
   },
-  methods:{
-    login(){
-      
-    }
-  }
+  methods: {
+    login() {
+      login({
+        username: this.username,
+        password: this.password,
+      }).then((res) => console.log(res));
+    },
+  },
 };
 </script>
 
