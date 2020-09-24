@@ -20,6 +20,8 @@ import Tags from "../Tags.vue";
 import Hotarticles from "../Hotarticles.vue";
 import Articles from "../Articles.vue";
 
+import { getarticleslist } from "@/request/api";
+
 export default {
   name: "MainConent",
   components: {
@@ -28,6 +30,12 @@ export default {
     Tags,
     Hotarticles,
     Articles,
+  },
+  created() {
+    getarticleslist().then((res) => {
+      console.log(res);
+      this.articles=res
+    });
   },
   data() {
     return {

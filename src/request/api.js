@@ -8,3 +8,12 @@ export function login(data) {
     data
   })
 }
+
+
+
+export function getarticleslist() {
+  return service({
+    url: '/articles/list',
+    method: 'get'
+  })
+}

@@ -18,14 +18,16 @@ service.interceptors.request.use(function (config) {
 
 // 添加响应拦截器
 service.interceptors.response.use(function (response) {
-  console.log(response.data)
-  Message({
-    message: response
-  })
+  if (response.data.err)
+    Message({
+      message: response.data.err,
+      type: 'error'
+    })
   // 对响应数据做点什么
   return response.data;
 }, function (error) {
   // 对响应错误做点什么
+
   return Promise.reject(error);
 });
 

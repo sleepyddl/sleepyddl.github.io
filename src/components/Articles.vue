@@ -2,10 +2,16 @@
   <div class="articles">
     <div class="article" v-for="item in articles" :key="item.id">
       <div class="intro">
-        <h2>{{item.title}}</h2>
-        <p>{{item.des}}</p>
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.des }}</p>
       </div>
-      <p class="posttime">POSTTIME:{{item.posttime}}</p>
+      <div class="time_and_button">
+        <p class="posttime">POSTTIME:{{ item.posttime }}</p>
+        <div v-if="isAuth" class="buttons">
+          <span>修改</span>
+          <span>删除</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -14,6 +20,13 @@
 export default {
   name: "articles",
   props: ["articles"],
+  computed: {
+    isAuth() {
+      return !!this.$store.state.token;
+    },
+  },
+  mounted() {
+  },
 };
 </script>
 <style lang="less" scoped>
@@ -38,9 +51,34 @@ export default {
       cursor: pointer;
     }
   }
-  .posttime {
+  .time_and_button {
     margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
     color: #a3a3a3;
+    .posttime {
+      display: inline-block;
+      color: #a3a3a3;
+    }
+    .buttons {
+        margin-right: 30px;
+      span {
+        padding: 0 2px;
+        border: solid 1px #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+        cursor: pointer;
+        transition: .3s;
+        &:nth-of-type(1):hover {
+          color: slategray;
+          border-color: slategray;
+        }
+        &:nth-of-type(2):hover {
+          color:brown;
+          border-color: brown;
+        }
+      }
+    }
   }
 }
 </style>

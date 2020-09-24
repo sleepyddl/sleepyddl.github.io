@@ -1,18 +1,23 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-
+import store from "@/store"
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('../views/admin/Login.vue')
+    component: Home
   },
   {
-    path: '/',
-    name: 'Home',
+    path: '/admin',
+    name: 'Admin',
+    component: () => import('../views/admin/Admin.vue')
+  },
+  {
+    path: '/login',
+    name: 'Login',
     component: () => import('../views/admin/Login.vue')
   },
   {
@@ -40,6 +45,20 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+
+router.beforeEach((to, from, next) => {
+  if (to.name === 'Admin') {
+    if (!store.state.token) {
+      next({ name: 'Login' })
+    } else {
+      next()
+    }
+  }
+  else {
+    next()
+  }
 })
 
 export default router

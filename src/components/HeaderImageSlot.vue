@@ -1,6 +1,8 @@
 <template>
   <div id="HeaderImageSlot">
-    <slot></slot>
+    <slot>
+      <img src="../assets/3.png" alt="">
+    </slot>
     <div class="slogan">
       <slot name="slogan"></slot>
     </div>

@@ -23,7 +23,13 @@ export default {
       login({
         username: this.username,
         password: this.password,
-      }).then((res) => console.log(res));
+      }).then((res) => {
+        if (res.err) {
+        } else {
+          this.$store.commit("setToken", res.token);
+          this.$router.push("/admin");
+        }
+      });
     },
   },
 };
