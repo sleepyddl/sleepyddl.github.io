@@ -22,11 +22,13 @@ export default {
   props: ["articles"],
   computed: {
     isAuth() {
-      return !!this.$store.state.token;
+      return (
+        !!this.$store.state.token &&
+        location.pathname.match(/^\/[a-z]*/)[0] === "/admin"
+      );
     },
   },
-  mounted() {
-  },
+  mounted() {},
 };
 </script>
 <style lang="less" scoped>
@@ -61,20 +63,20 @@ export default {
       color: #a3a3a3;
     }
     .buttons {
-        margin-right: 30px;
+      margin-right: 30px;
       span {
         padding: 0 2px;
         border: solid 1px #ccc;
         border-radius: 5px;
         margin-right: 10px;
         cursor: pointer;
-        transition: .3s;
+        transition: 0.3s;
         &:nth-of-type(1):hover {
           color: slategray;
           border-color: slategray;
         }
         &:nth-of-type(2):hover {
-          color:brown;
+          color: brown;
           border-color: brown;
         }
       }

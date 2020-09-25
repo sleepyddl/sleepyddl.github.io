@@ -1,13 +1,14 @@
 <template>
   <div id="app">
-    <Menu class="menu" />
+    <Menu class="menu"  />
     <router-view />
   </div>
 </template>
 <script>
 import Menu from "@/components/Menu.vue";
 export default {
-  components: { Menu },
+  name: "App",
+  components: { Menu }
 };
 </script>
 <style lang="less">
@@ -34,6 +35,4 @@ export default {
     box-sizing: border-box;
   }
 }
-
-
 </style>

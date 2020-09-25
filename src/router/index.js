@@ -16,6 +16,12 @@ const routes = [
     component: () => import('../views/admin/Admin.vue')
   },
   {
+    path: '/admin/mkfile',
+    name: 'Mkfile',
+    component: () => import('../views/admin/Mkfile.vue')
+  },
+  
+  {
     path: '/login',
     name: 'Login',
     component: () => import('../views/admin/Login.vue')

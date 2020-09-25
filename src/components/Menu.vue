@@ -1,14 +1,16 @@
 <template>
-  <div id="Menu">
+  <div id="Menu" v-if="pathname != '/admin/mkfile'">
     <div class="logo" @click="change('/')">Longway's Blog</div>
     <div class="nav">
       <div
         class="navitem"
         v-for="item in routes"
-        :class="{active:item.path==active}"
+        :class="{ active: item.path == active }"
         :key="item.name"
         @click="change(item.path)"
-      >{{item.name}}</div>
+      >
+        {{ item.name }}
+      </div>
     </div>
   </div>
 </template>
@@ -30,6 +32,12 @@ export default {
   mounted() {
     // 根据用户输入的url确定active
     this.active = location.pathname.match(/^\/[a-z]*/)[0];
+    console.log();
+  },
+  computed: {
+    pathname() {
+      return location.pathname;
+    },
   },
   watch: {
     $route(val) {
