@@ -17,3 +17,14 @@ export function getarticleslist() {
     method: 'get'
   })
 }
+
+export function uploadimg(data) {
+  return service({
+    url: '/admin/uploadimg',
+    method: 'post',
+
+    headers: { 'Content-Type': 'multipart/form-data' },
+    // 'Content-Type': 'application/x-www-form-urlencoded'
+    data
+  })
+}

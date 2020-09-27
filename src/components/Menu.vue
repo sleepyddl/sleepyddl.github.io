@@ -1,5 +1,5 @@
 <template>
-  <div id="Menu" v-if="pathname != '/admin/mkfile'">
+  <div id="Menu">
     <div class="logo" @click="change('/')">Longway's Blog</div>
     <div class="nav">
       <div
@@ -32,13 +32,8 @@ export default {
   mounted() {
     // 根据用户输入的url确定active
     this.active = location.pathname.match(/^\/[a-z]*/)[0];
-    console.log();
   },
-  computed: {
-    pathname() {
-      return location.pathname;
-    },
-  },
+  computed: {},
   watch: {
     $route(val) {
       this.active = val.path.match(/^\/[a-z]*/)[0];
