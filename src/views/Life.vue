@@ -7,7 +7,7 @@
         <p>做一些有意义的事情</p>
       </template>
     </HeaderImageSlot>
-    <MainConent/>
+    <MainConent :articles="articles" />
   </div>
 </template>
 
@@ -15,11 +15,20 @@
 import HeaderImageSlot from "@/components/HeaderImageSlot.vue";
 import MainConent from "@/components/combComponents/MainConent.vue";
 
+import { getarticleslist } from "@/request/api.js";
 export default {
   name: "Life",
   components: {
     HeaderImageSlot,
-    MainConent
+    MainConent,
+  },
+  data() {
+    return {
+      articles: [{ id: "", title: "", des: "", posttime: "" }],
+    };
+  },
+  created() {
+    getarticleslist({ type: "life" }).then((res) => (this.articles = res));
   },
 };
 </script>

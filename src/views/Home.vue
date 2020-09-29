@@ -10,25 +10,32 @@
         <p>好好学习，天天向上</p>
       </template>
     </HeaderImageSlot>
-    <MainConent />
+    <MainConent :articles="articles" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import HeaderImageSlot from "@/components/HeaderImageSlot.vue";
-import MainConent from "@/components/combComponents/MainConent.vue"
+import MainConent from "@/components/combComponents/MainConent.vue";
+
+import { getarticleslist } from "@/request/api.js";
 
 export default {
   name: "Home",
   components: {
     HeaderImageSlot,
-    MainConent
+    MainConent,
   },
+
   data() {
-    return {};
+    return {
+      articles: [{ id: "", title: "", des: "", posttime: "" }],
+    };
   },
-  created() {},
+  created() {
+    getarticleslist().then((res) => (this.articles = res));
+  },
 };
 </script>
 

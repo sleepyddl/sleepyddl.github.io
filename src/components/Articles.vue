@@ -1,7 +1,7 @@
 <template>
   <div class="articles">
     <div class="article" v-for="item in articles" :key="item.id">
-      <div class="intro">
+      <div class="intro" @click="gotoDetail(item.id)">
         <h2>{{ item.title }}</h2>
         <p>{{ item.des }}</p>
       </div>
@@ -28,7 +28,11 @@ export default {
       );
     },
   },
-  mounted() {},
+  methods: {
+    gotoDetail(id) {
+      this.$router.push({ name: "detail", query: { id } });
+    },
+  },
 };
 </script>
 <style lang="less" scoped>

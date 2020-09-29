@@ -7,23 +7,33 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home
   },
   {
     path: '/admin',
-    name: 'Admin',
+    name: 'admin',
     component: () => import('../views/admin/Admin.vue')
   },
   {
+    path: '/detail',
+    name: 'detail',
+    component: () => import('../views/Detail.vue'),
+    props: (route) => {
+      return {
+        id: route.query.id
+      }
+    }
+  },
+  {
     path: '/admin/mkfile',
-    name: 'Mkfile',
+    name: 'mkfile',
     component: () => import('../views/admin/Mkfile.vue')
   },
-  
+
   {
     path: '/login',
-    name: 'Login',
+    name: 'login',
     component: () => import('../views/admin/Login.vue')
   },
   {
@@ -32,17 +42,17 @@ const routes = [
   },
   {
     path: "/code",
-    name: "Code",
+    name: "code",
     component: () => import('../views/Code.vue')
   },
   {
     path: "/life",
-    name: "Life",
+    name: "life",
     component: () => import('../views/Life.vue')
   },
   {
     path: "/profile",
-    name: "Profile",
+    name: "profile",
     component: () => import('../views/Profile.vue')
   },
 ]
@@ -50,7 +60,11 @@ const routes = [
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    // return 期望滚动到哪个的位置
+    return { x: 0, y: 0 }
+  }
 })
 
 

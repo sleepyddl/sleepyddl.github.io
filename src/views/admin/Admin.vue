@@ -1,6 +1,7 @@
 <template>
   <div class="admin">
     <HeaderImageSlot>
+      <img src="../../assets/3.png" alt="" />
       <template v-slot:slogan>
         <p>Admin</p>
         <p>管理后台</p>
@@ -41,7 +42,10 @@ export default {
     },
   },
   created() {
-    getarticleslist().then((res) => (this.articles = res));
+    getarticleslist().then((res) => {
+      this.articles = res;
+      console.log(res);
+    });
   },
 };
 </script>
