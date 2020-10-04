@@ -1,12 +1,14 @@
 <template>
   <div class="articles">
-    <div class="article" v-for="item in articles" :key="item.id">
+    <div class="article" v-for="item in dealArticles" :key="item.id">
       <div class="intro" @click="gotoDetail(item.id)">
         <h2>{{ item.title }}</h2>
         <p>{{ item.des }}</p>
       </div>
       <div class="time_and_button">
-        <p class="posttime">POSTTIME:{{ item.posttime }}</p>
+        <p class="posttime" v-if="item.posttime != ''">
+          POSTTIME:{{ item.posttime }}
+        </p>
         <div v-if="isAuth" class="buttons">
           <span>修改</span>
           <span>删除</span>
@@ -18,7 +20,7 @@
 
 <script>
 export default {
-  name: "articles",
+  name: "Articles",
   props: ["articles"],
   computed: {
     isAuth() {
@@ -27,7 +29,17 @@ export default {
         location.pathname.match(/^\/[a-z]*/)[0] === "/admin"
       );
     },
+    dealArticles() {
+      return this.articles.map((item) => {
+        let date = new Date(+item.posttime);
+        item.posttime = `${1900 + date.getYear()}/${
+          date.getMonth() + 1
+        }/${date.getDate()}`;
+        return item;
+      });
+    },
   },
+
   methods: {
     gotoDetail(id) {
       this.$router.push({ name: "detail", query: { id } });

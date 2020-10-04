@@ -19,6 +19,13 @@ export function getarticlesdetail(id) {
     method: 'get'
   })
 }
+export function postArticle(data) {
+  return service({
+    url: `/articles/post`,
+    method: 'post',
+    data
+  })
+}
 
 // http://127.0.0.1:3000/articles/list/?type=""
 export function getarticleslist(type) {
