@@ -18,24 +18,32 @@
       </div>
       <textarea placeholder="文章简介" v-model="des"></textarea>
     </div>
-    <mavon-editor v-model="value" class="editor" ref="md" @imgAdd="$imgAdd" />
+    <mavon-editor
+      v-model="value"
+      class="editor"
+      ref="md"
+      @imgAdd="$imgAdd"
+    />
   </div>
 </template>
 
 <script>
-import { uploadimg, baseUrl } from "@/request/api.js";
-
+import { uploadimg, baseUrl, postArticle } from "@/request/api.js";
 import axios from "axios";
+import { Message, Notification } from "element-ui";
 export default {
   data() {
     return {
       menu: "",
-      value: "",
+      value: "#",
       des: "",
       title: "",
     };
   },
   methods: {
+    $htmlCode(status, value) {
+      console.log(status, value);
+    },
     // 绑定@imgAdd event
     $imgAdd(pos, $file) {
       console.log($file);
@@ -43,21 +51,42 @@ export default {
       var formdata = new FormData();
       formdata.append("image", $file);
 
+      // 第二步.将返回的url替换到文本原位置![...](0) -> ![...](url)
+      // $vm.$img2Url 详情见本页末尾
+
       uploadimg(formdata).then((url) => {
         this.$refs.md.$img2Url(pos, baseUrl + url.imgSrc);
       });
-
-      // 第二步.将返回的url替换到文本原位置![...](0) -> ![...](url)
-      // $vm.$img2Url 详情见本页末尾
     },
     submit() {
-      console.log(1);
+      let posttime = new Date().getTime();
+      if (!this.title || !this.menu || !this.des || !this.value) {
+        Message({ message: "err", type: "error" });
+      } else {
+        let data = {
+          title: this.title,
+          menu: this.menu,
+          des: this.des,
+          value: this.value,
+          posttime,
+        };
+        postArticle(data).then((res) => {
+          console.log(res);
+          if (res.type == "success") {
+            Notification({
+              message: "提交成功",
+              type: "success",
+              onClose: () => {
+                this.$router.push("/");
+              },
+            });
+          }
+        });
+      }
     },
   },
   watch: {
-    value(val) {
-      console.log(val);
-    },
+   
   },
 };
 </script>
