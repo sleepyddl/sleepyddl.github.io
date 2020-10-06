@@ -20,7 +20,7 @@ import Tags from "../Tags.vue";
 import Hotarticles from "../Hotarticles.vue";
 import Articles from "../Articles.vue";
 
-import { getarticleslist } from "@/request/api";
+import { getarticleslist, getHotarticles } from "@/request/api";
 
 export default {
   name: "MainConent",
@@ -56,14 +56,11 @@ export default {
       ],
     };
   },
-  created() {
-    switch (this.show) {
-      case "home":
-        getarticleslist().then((res) => (this.articles = res));
-        break;
-      default:
-        getarticleslist(this.show).then((res) => (this.articles = res));
-    }
+  async created() {
+    [this.hotarticles, this.articles] = await Promise.all([
+      getHotarticles(),
+      this.show === "home" ? getarticleslist() : getarticleslist(this.show),
+    ]);
   },
   methods: {
     changeArticle(arr) {

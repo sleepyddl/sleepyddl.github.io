@@ -1,7 +1,9 @@
 <template>
   <div class="hotarticles block">
     <div class="title">热门文章</div>
-    <p v-for="item in hotarticles" :key="item.id">{{item.title}}</p>
+    <p v-for="item in hotarticles" :key="item.id" @click="gotoDetail(item.id)">
+      {{ item.title }}
+    </p>
   </div>
 </template>
 
@@ -9,6 +11,11 @@
 export default {
   name: "Hotarticles",
   props: ["hotarticles"],
+  methods: {
+    gotoDetail(id) {
+      this.$router.push({ name: "detail", query: { id } });
+    },
+  },
 };
 </script>
 

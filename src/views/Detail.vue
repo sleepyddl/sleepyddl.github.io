@@ -20,7 +20,7 @@
  
 <script>
 import HeaderImageSlot from "@/components/HeaderImageSlot.vue";
-import { getarticlesdetail } from "@/request/api";
+import { getarticlesdetail, increaseLookTimes } from "@/request/api";
 
 import MdShow from "@/components/MdShow.vue";
 
@@ -37,19 +37,19 @@ export default {
         content: "",
         menu: "",
       },
-      realHTML: "",
-      realTOC: "",
     };
   },
 
   components: {
     HeaderImageSlot,
-    MdShow
+    MdShow,
   },
-  created() {
-    getarticlesdetail(this.id).then((res) => {
-      this.detail = res;
-    });
+  async created() {
+    this.detail = await getarticlesdetail(this.id);
+
+    setTimeout(() => {
+      increaseLookTimes(this.id).then((res) => console.log(res));
+    }, 30000);
   },
 };
 </script>

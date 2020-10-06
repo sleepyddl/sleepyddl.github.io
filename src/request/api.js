@@ -1,7 +1,10 @@
 import service from "./http"
 
-
 export let baseUrl = "http://127.0.0.1:3000/"
+
+
+// post请求      url: string, data?: any, config?: AxiosRequestConfig
+// get请求       url: string, config?: AxiosRequestConfig
 
 export function login(data) {
   return service({
@@ -15,7 +18,7 @@ export function login(data) {
 export function getarticlesdetail(id) {
   return service({
     url: `/articles/detail`,
-    params: {id},
+    params: { id },
     method: 'get'
   })
 }
@@ -35,7 +38,13 @@ export function getarticleslist(type) {
     method: 'get'
   })
 }
-
+export function getHotarticles() {
+  return service({
+    url: '/articles/hot',
+    // params: { type },
+    method: 'get'
+  })
+}
 export function searcharticles(keyword) {
   return service({
     url: '/articles/list',
@@ -43,6 +52,16 @@ export function searcharticles(keyword) {
     method: 'get'
   })
 }
+
+export function increaseLookTimes(id) {
+  return service({
+    url: '/articles/looktimes',
+    method: 'post',
+    data: { id }
+  })
+}
+
+
 
 export function uploadimg(data) {
   return service({
@@ -53,6 +72,9 @@ export function uploadimg(data) {
     data
   })
 }
+
+
+
 
 export function articleDelete(id) {
   return service({
