@@ -10,9 +10,8 @@
     </HeaderImageSlot>
     <div class="content">
       <!-- <div class="left"></div> -->
-
       <div class="right">
-        <div v-html="realHTML" class="markdown-body" id="markdown-body"></div>
+        <MdShow :md="detail.content" />
       </div>
     </div>
   </div>
@@ -23,11 +22,8 @@
 import HeaderImageSlot from "@/components/HeaderImageSlot.vue";
 import { getarticlesdetail } from "@/request/api";
 
-import { Remarkable } from "remarkable";
-const md = new Remarkable();
+import MdShow from "@/components/MdShow.vue";
 
-// import AutocJs from "autocjs";
-// console.log(AutocJs);
 export default {
   name: "Detail",
   props: ["id"],
@@ -48,19 +44,12 @@ export default {
 
   components: {
     HeaderImageSlot,
+    MdShow
   },
-  mounted() {
-   },
   created() {
     getarticlesdetail(this.id).then((res) => {
       this.detail = res;
-      this.realHTML = md.render(res.content);
-      console.log(this.realHTML);
-      // console.log(this.realTOC);
     });
   },
 };
 </script>
-<style scsoped>
-@import url("https://cdn.bootcss.com/github-markdown-css/2.10.0/github-markdown.min.css");
-</style>
