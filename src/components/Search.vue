@@ -2,15 +2,29 @@
   <div class="search block">
     <div class="title">文章搜索</div>
     <div class="searchInput">
-      <input type="text" placeholder="根据标题进行搜索" />
-      <div></div>
+      <input type="text" placeholder="根据标题进行搜索" v-model="val" />
+      <div @click="searh"></div>
     </div>
   </div>
 </template>
 
 <script>
+import { searcharticles } from "@/request/api";
 export default {
   name: "Search",
+  data() {
+    return {
+      val: "",
+    };
+  },
+  methods: {
+    async searh() {
+      if (this.val.trim()) {
+        let arr = await searcharticles(this.val);
+        this.$emit("changeArticle", arr);
+      }
+    },
+  },
 };
 </script>
 <style lang="less" scoped>

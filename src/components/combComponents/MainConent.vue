@@ -2,7 +2,7 @@
   <div class="content">
     <div class="left">
       <Info />
-      <Search />
+      <Search @changeArticle="changeArticle" />
       <!-- <Tags :tags="tags"></Tags> -->
       <Hotarticles :hotarticles="hotarticles"></Hotarticles>
     </div>
@@ -64,6 +64,11 @@ export default {
       default:
         getarticleslist(this.show).then((res) => (this.articles = res));
     }
+  },
+  methods: {
+    changeArticle(arr) {
+      this.articles = arr;
+    },
   },
 };
 </script>

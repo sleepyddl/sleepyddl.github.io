@@ -36,6 +36,14 @@ export function getarticleslist(type) {
   })
 }
 
+export function searcharticles(keyword) {
+  return service({
+    url: '/articles/list',
+    params: { keyword },
+    method: 'get'
+  })
+}
+
 export function uploadimg(data) {
   return service({
     url: '/admin/uploadimg',
