@@ -18,32 +18,39 @@
       </div>
       <textarea placeholder="文章简介" v-model="des"></textarea>
     </div>
-    <mavon-editor
-      v-model="value"
-      class="editor"
-      ref="md"
-      @imgAdd="$imgAdd"
-    />
+    <mavon-editor v-model="content" class="editor" ref="md" @imgAdd="$imgAdd" />
   </div>
 </template>
 
 <script>
-import { uploadimg, baseUrl, postArticle } from "@/request/api.js";
+import {
+  uploadimg,
+  baseUrl,
+  postArticle,
+  getarticlesdetail,
+} from "@/request/api.js";
 import axios from "axios";
 import { Message, Notification } from "element-ui";
+
 export default {
   data() {
     return {
       menu: "",
-      value: "#",
+      content: "#",
       des: "",
       title: "",
+      id: 0,
     };
   },
+  async created() {
+    let id = this.$route.query.id;
+    console.log(id);
+    if (id) {
+      let article = await getarticlesdetail(id);
+      Object.assign(this, article);
+    }
+  },
   methods: {
-    $htmlCode(status, value) {
-      console.log(status, value);
-    },
     // 绑定@imgAdd event
     $imgAdd(pos, $file) {
       console.log($file);
@@ -60,22 +67,25 @@ export default {
     },
     submit() {
       let posttime = new Date().getTime();
-      if (!this.title || !this.menu || !this.des || !this.value) {
+      if (!this.title || !this.menu || !this.des || !this.content) {
         Message({ message: "err", type: "error" });
       } else {
         let data = {
           title: this.title,
           menu: this.menu,
           des: this.des,
-          value: this.value,
+          content: this.content,
           posttime,
         };
+        if (this.id) {
+          data.id = this.id;
+        }
         postArticle(data).then((res) => {
           console.log(res);
           if (res.type == "success") {
             Notification({
-              message: "提交成功",
-              type: "success",
+              message: res.type,
+              type: res.type,
               onClose: () => {
                 this.$router.push("/");
               },
@@ -85,9 +95,7 @@ export default {
       }
     },
   },
-  watch: {
-   
-  },
+  watch: {},
 };
 </script>
 

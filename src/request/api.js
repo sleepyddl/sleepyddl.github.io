@@ -15,7 +15,7 @@ export function login(data) {
 export function getarticlesdetail(id) {
   return service({
     url: `/articles/detail`,
-    params: { id },
+    params: {id},
     method: 'get'
   })
 }
@@ -31,7 +31,7 @@ export function postArticle(data) {
 export function getarticleslist(type) {
   return service({
     url: '/articles/list',
-    params: type,
+    params: { type },
     method: 'get'
   })
 }
@@ -40,9 +40,18 @@ export function uploadimg(data) {
   return service({
     url: '/admin/uploadimg',
     method: 'post',
-
     headers: { 'Content-Type': 'multipart/form-data' },
     // 'Content-Type': 'application/x-www-form-urlencoded'
     data
+  })
+}
+
+export function articleDelete(id) {
+  return service({
+    url: '/articles/delete',
+    method: 'delete',
+    params: {
+      id
+    },
   })
 }

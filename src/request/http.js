@@ -1,10 +1,9 @@
 import axios from "axios"
 import { MessageBox, Message } from 'element-ui'
 
-
 const service = axios.create({
   baseURL: 'http://127.0.0.1:3000', // api 的 base_url
-  timeout: 5000,// request timeout
+  timeout: 50000,// request timeout
 })
 
 // // 添加请求拦截器
@@ -31,5 +30,5 @@ service.interceptors.response.use(function (response) {
   return Promise.reject(error);
 });
 
-
+console.dir(service)
 export default service

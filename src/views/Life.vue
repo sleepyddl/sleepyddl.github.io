@@ -28,7 +28,7 @@ export default {
     };
   },
   created() {
-    getarticleslist({ type: "life" }).then((res) => (this.articles = res));
+    getarticleslist("life").then((res) => (this.articles = res));
   },
 };
 </script>

@@ -29,7 +29,7 @@ export default {
     };
   },
   created() {
-    getarticleslist({ type: "code" }).then((res) => (this.articles = res));
+    getarticleslist("code").then((res) => (this.articles = res));
   },
 };
 </script>

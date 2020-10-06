@@ -30,7 +30,7 @@ const routes = [
     name: 'mkfile',
     component: () => import('../views/admin/Mkfile.vue')
   },
-
+  
   {
     path: '/login',
     name: 'login',

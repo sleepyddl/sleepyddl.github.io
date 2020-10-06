@@ -10,8 +10,8 @@
           POSTTIME:{{ item.posttime }}
         </p>
         <div v-if="isAuth" class="buttons">
-          <span>修改</span>
-          <span>删除</span>
+          <span @click="changeArticle(item.id)">修改</span>
+          <span @click="deleteArticle(item.id)">删除</span>
         </div>
       </div>
     </div>
@@ -19,6 +19,10 @@
 </template>
 
 <script>
+import { articleDelete } from "@/request/api";
+
+import { Notification } from "element-ui";
+
 export default {
   name: "Articles",
   props: ["articles"],
@@ -43,6 +47,22 @@ export default {
   methods: {
     gotoDetail(id) {
       this.$router.push({ name: "detail", query: { id } });
+    },
+    changeArticle(id) {
+      this.$router.push({ name: "mkfile", query: { id } });
+    },
+    deleteArticle(id) {
+      articleDelete(id).then((res) => {
+        if (res.type === "success") {
+          Notification({
+            message: res.type,
+            type: res.type,
+            onClose: () => {
+              this.$router.go(0);
+            },
+          });
+        }
+      });
     },
   },
 };

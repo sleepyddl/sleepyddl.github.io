@@ -7,11 +7,13 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "autocjs": "^2.0.1",
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "element-ui": "^2.13.2",
     "marked": "^1.2.0",
     "mavon-editor": "^2.9.0",
+    "remarkable": "^2.0.1",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
@@ -29,5 +31,20 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "description": "## Project setup ``` npm install ```",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/longwayya/longwayya.github.io.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "longwayya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/longwayya/longwayya.github.io/issues"
+  },
+  "homepage": "https://github.com/longwayya/longwayya.github.io#readme"
 }
