@@ -24,7 +24,6 @@ import { getarticleslist } from "@/request/api";
 
 export default {
   name: "MainConent",
-  props:["articles"],
   components: {
     Info,
     Search,
@@ -32,8 +31,10 @@ export default {
     Hotarticles,
     Articles,
   },
+  props: ["show"],
   data() {
     return {
+      articles: [],
       tags: [
         { name: "css", menu: "code" },
         { name: "JavaScript", menu: "code" },
@@ -54,6 +55,15 @@ export default {
         },
       ],
     };
+  },
+  created() {
+    switch (this.show) {
+      case "home":
+        getarticleslist().then((res) => (this.articles = res));
+        break;
+      default:
+        getarticleslist(this.show).then((res) => (this.articles = res));
+    }
   },
 };
 </script>
