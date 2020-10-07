@@ -37,6 +37,7 @@ export default {
         content: "",
         menu: "",
       },
+      sTo: "",
     };
   },
 
@@ -46,10 +47,12 @@ export default {
   },
   async created() {
     this.detail = await getarticlesdetail(this.id);
-
-    setTimeout(() => {
-      increaseLookTimes(this.id).then((res) => console.log(res));
-    }, 30000);
+    this.sTo = setTimeout(() => {
+      increaseLookTimes(this.id);
+    }, 10000);
+  },
+  destroyed() {
+    clearTimeout(this.sTo);
   },
 };
 </script>

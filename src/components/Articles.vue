@@ -34,13 +34,15 @@ export default {
       );
     },
     dealArticles() {
-      return this.articles.map((item) => {
-        let date = new Date(+item.posttime);
-        item.posttime = `${1900 + date.getYear()}/${
-          date.getMonth() + 1
-        }/${date.getDate()}`;
-        return item;
-      });
+      return this.articles
+        .map((item) => {
+          let date = new Date(+item.posttime);
+          item.posttime = `${1900 + date.getYear()}/${
+            date.getMonth() + 1
+          }/${date.getDate()}`;
+          return item;
+        })
+        .reverse();
     },
   },
 

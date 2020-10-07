@@ -41,19 +41,7 @@ export default {
         { name: "HTML", menu: "code" },
         { name: "虚拟机", menu: "code" },
       ],
-      hotarticles: [
-        { title: "为什么写博客这么难，该怎么办？", id: "12345", menu: "code" },
-        {
-          title: "为什么找工作这么难，我太难了我太难了",
-          id: "23",
-          menu: "life",
-        },
-        {
-          title: "为什么？？？我是十万个为什么哈哈哈啊哈",
-          id: "1",
-          menu: "life",
-        },
-      ],
+      hotarticles: [],
     };
   },
   async created() {

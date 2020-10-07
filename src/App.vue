@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Menu class="menu"  />
+    <Menu class="menu" />
     <router-view />
   </div>
 </template>
@@ -8,9 +8,39 @@
 import Menu from "@/components/Menu.vue";
 export default {
   name: "App",
-  components: { Menu }
+  components: { Menu },
 };
 </script>
+
+<style>
+@media screen and (max-width: 1200px) {
+  .content {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 900px) {
+  .content {
+    width: 100% !important;
+  }
+  .left {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .content {
+    width: 100% !important;
+  }
+  .left {
+    display: none;
+  }
+
+  #menu {
+    display: none !important;
+  }
+}
+</style>
+
 <style lang="less">
 * {
   margin: 0;
