@@ -10,9 +10,7 @@
 
     <MainConent show="profile" :md="md" />
     <div class="content">
-      <div class="left">
-        <Info />
-      </div>
+     
       <div class="right"></div>
     </div>
   </div>
