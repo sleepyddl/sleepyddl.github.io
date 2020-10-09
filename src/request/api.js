@@ -1,6 +1,6 @@
 import service from "./http"
 
-export let baseUrl = "http://127.0.0.1:3000/"
+export let baseUrl = service.defaults.baseURL
 
 
 // post请求      url: string, data?: any, config?: AxiosRequestConfig

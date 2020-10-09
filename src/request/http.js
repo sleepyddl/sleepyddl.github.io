@@ -3,7 +3,7 @@ import store from "../store"
 import { MessageBox, Message } from 'element-ui'
 
 const service = axios.create({
-  baseURL: 'http://127.0.0.1:3000', // api 的 base_url
+  baseURL: 'https://www.dtune.top/blog/', // api 的 base_url
   timeout: 50000,// request timeout
 })
 
@@ -39,5 +39,4 @@ service.interceptors.response.use(function (response) {
   return Promise.reject(error);
 });
 
-console.dir(service)
 export default service
