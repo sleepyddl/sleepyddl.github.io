@@ -12,6 +12,20 @@
         {{ item.name }}
       </div>
     </div>
+    <div class="navinPhone">
+      <img src="../assets/menu.png" class="navimg" @click="showNav" />
+      <div class="navs" v-show="navshow">
+        <div
+          class="navitem"
+          v-for="item in routes"
+          :class="{ active: item.path == active }"
+          :key="item.name"
+          @click="change(item.path)"
+        >
+          {{ item.name }}
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -27,6 +41,7 @@ export default {
         { name: "关于我", path: "/profile" },
       ],
       active: "/",
+      navshow: false,
     };
   },
   mounted() {
@@ -45,9 +60,13 @@ export default {
     // 监听路由  对url或者$route做截取 获得属于哪一个大类别 修改active 使其显示为白色
 
     change(path) {
+      this.navshow = false;
       if (this.$route.path != path) {
         this.$router.push(path);
       }
+    },
+    showNav() {
+      this.navshow = !this.navshow;
     },
   },
 };
@@ -67,6 +86,12 @@ export default {
   font-weight: 700;
   color: #bbb;
   cursor: pointer;
+  .navimg {
+    margin: 20px;
+    height: 20px;
+    width: 25px;
+  }
+
   .logo {
     z-index: 2;
     top: 0;
@@ -89,6 +114,38 @@ export default {
       &:hover {
         color: #fff;
       }
+    }
+  }
+  .navinPhone {
+    display: none;
+    position: relative;
+    .navs {
+      position: absolute;
+      top: 50px;
+      right: 40px;
+      left: -100px;
+      border: solid 2px #fff;
+      border-radius: 3px;
+      box-shadow: 0 0 2px #666;
+      background: #fff;
+      .navitem {
+        color: #666;
+        box-sizing: border-box;
+        padding: 0 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #Menu {
+    right: 0;
+    left: 0;
+    .navinPhone {
+      display: block;
+    }
+    .nav {
+      display: none;
     }
   }
 }

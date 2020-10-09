@@ -19,9 +19,6 @@ export default {
   }
 }
 @media screen and (max-width: 900px) {
-  .content {
-    width: 100% !important;
-  }
   .left {
     display: none;
   }
@@ -29,14 +26,10 @@ export default {
 
 @media screen and (max-width: 700px) {
   .content {
-    width: 100% !important;
+    padding: 10px !important;
   }
-  .left {
-    display: none;
-  }
-
-  #menu {
-    display: none !important;
+  #HeaderImageSlot {
+    height: 250px !important;
   }
 }
 </style>

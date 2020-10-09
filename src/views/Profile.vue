@@ -2,12 +2,15 @@
   <div class="profile">
     <HeaderImageSlot>
       <img src="../assets/4.png" />
+      <template v-slot:slogan>
+        <p>About me</p>
+        <p>该写一些什么呢</p>
+      </template>
     </HeaderImageSlot>
     <div class="content">
       <div class="left">
         <Info />
       </div>
-
       <div class="right">
         <MdShow :md="md" />
       </div>

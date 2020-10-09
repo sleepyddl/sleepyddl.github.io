@@ -4,7 +4,7 @@
       <img v-if="detail.menu == 'code'" src="../assets/2.png" />
       <img v-else-if="detail.menu == 'life'" src="../assets/3.png" />
       <template v-slot:slogan>
-        <p>{{ detail.title }}</p>
+        <p class="title">{{ detail.title }}</p>
         <!-- <p>{{ detail.des }}</p> -->
       </template>
     </HeaderImageSlot>
@@ -56,3 +56,11 @@ export default {
   },
 };
 </script>
+
+<style lang="less" scoped>
+@media screen and (max-width: 700px) {
+  .title {
+    font-size: 30px !important;
+  }
+}
+</style>

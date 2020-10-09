@@ -14,6 +14,8 @@ export default {
   name: "HeaderImageSlot",
 };
 </script>
+
+
 <style lang="less" scoped>
 #HeaderImageSlot {
   position: relative;
@@ -48,4 +50,5 @@ export default {
     }
   }
 }
+
 </style>
