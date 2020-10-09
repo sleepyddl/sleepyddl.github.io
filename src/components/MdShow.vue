@@ -16,6 +16,6 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 @import url("https://cdn.bootcss.com/github-markdown-css/2.10.0/github-markdown.min.css");
 </style>

@@ -30,19 +30,7 @@ export default {
 
 
 <style lang="less" >
-.left {
-  .title {
-    font-size: 18px;
-    font-weight: 700;
-    color: #666;
-    margin: 20px 0 10px;
-  }
-  .block {
-    border-bottom: solid 1px #eee;
-    box-sizing: border-box;
-    padding-bottom: 10px;
-  }
-}
+
 </style>
 
 

@@ -49,6 +49,7 @@ export default {
       letter-spacing: 10px;
     }
   }
+
 }
 
 </style>

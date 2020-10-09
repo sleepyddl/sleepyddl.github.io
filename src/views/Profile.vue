@@ -7,20 +7,20 @@
         <p>该写一些什么呢</p>
       </template>
     </HeaderImageSlot>
+
+    <MainConent show="profile" :md="md" />
     <div class="content">
       <div class="left">
         <Info />
       </div>
-      <div class="right">
-        <MdShow :md="md" />
-      </div>
+      <div class="right"></div>
     </div>
   </div>
 </template>
 
 <script>
 import HeaderImageSlot from "@/components/HeaderImageSlot.vue";
-import MdShow from "@/components/MdShow.vue";
+import MainConent from "@/components/combComponents/MainConent.vue";
 
 import Info from "@/components/Info.vue";
 
@@ -29,7 +29,7 @@ export default {
   components: {
     HeaderImageSlot,
     Info,
-    MdShow,
+    MainConent,
   },
   data() {
     return {
@@ -55,5 +55,4 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://cdn.bootcss.com/github-markdown-css/2.10.0/github-markdown.min.css");
 </style>

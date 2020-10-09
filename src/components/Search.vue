@@ -3,7 +3,7 @@
     <div class="title">文章搜索</div>
     <div class="searchInput">
       <input type="text" placeholder="根据标题进行搜索" v-model="val" />
-      <div @click="searh"></div>
+      <div @click="searh" @keyup.enter="search"></div>
     </div>
   </div>
 </template>
