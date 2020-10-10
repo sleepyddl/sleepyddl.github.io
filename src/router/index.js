@@ -69,9 +69,9 @@ const router = new VueRouter({
 
 
 router.beforeEach((to, from, next) => {
-  if (to.name === 'Admin') {
+  if (to.name === 'admin') {
     if (!store.state.token) {
-      next({ name: 'Login' })
+      next({ name: 'login' })
     } else {
       next()
     }

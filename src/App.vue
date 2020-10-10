@@ -2,6 +2,7 @@
   <div id="app">
     <Menu class="menu" />
     <router-view />
+    <p class="Admin" @click="AdminClick">Admin</p>
   </div>
 </template>
 <script>
@@ -9,6 +10,11 @@ import Menu from "@/components/Menu.vue";
 export default {
   name: "App",
   components: { Menu },
+  methods: {
+    AdminClick() {
+      this.$router.push("/admin").catch((err) => err);
+    },
+  },
 };
 </script>
 
@@ -73,6 +79,17 @@ export default {
     border-bottom: solid 1px #eee;
     box-sizing: border-box;
     padding-bottom: 10px;
+  }
+}
+</style>
+
+<style lang="less" scoped>
+.Admin {
+  text-align: center;
+  color: #eee;
+  cursor: pointer;
+  &:hover {
+    color: #999;
   }
 }
 </style>
