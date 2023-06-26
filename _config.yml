@@ -4,9 +4,9 @@
 
 # Site
 title: 多多洛的小站
-subtitle: ''
-description: ''
-keywords:
+subtitle: 希望可以做一些有趣、有意义的事情
+description: 面向百度编程、擅长复制粘贴、无情的cruder
+keywords: 
 author: duoduoluo
 language: zh-CN
 timezone: ''
@@ -47,7 +47,10 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: readme.md
+
+avatar: /img/avatar.png
+favicon: /img/favicon.ico
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -59,8 +62,8 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
-relative_link: false
+post_asset_folder: true
+relative_link: true
 future: true
 highlight:
   enable: true
