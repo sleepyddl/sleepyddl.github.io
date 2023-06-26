@@ -3,17 +3,36 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 多多洛的小站
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
-language: en
+author: duoduoluo
+language: zh
 timezone: ''
+
+
+subnav:
+  github: "https://github.com/sleepyddl"
+  #weibo: "#"
+  #rss: "#"
+  #zhihu: "#"
+  #qq: "#"
+  #weixin: "#"
+  #jianshu: "#"
+  #douban: "#"
+  #segmentfault: "#"
+  #bilibili: "#"
+  #acfun: "#"
+  mail: "mailto:me@duoduoluo.cn"
+  #facebook: "#"
+  #google: "#"
+  #twitter: "#"
+  #linkedin: "#"
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: http://duoduoluo.cn
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
