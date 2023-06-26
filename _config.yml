@@ -5,30 +5,12 @@
 # Site
 title: 多多洛的小站
 subtitle: 希望可以做一些有趣、有意义的事情
-description: 面向百度编程、擅长复制粘贴、无情的cruder
-keywords: 
+description: 多多洛、duoduoluo、困困的多多洛、sleepyddl
+keywords: 面向百度编程、擅长复制粘贴、无情的cruder
 author: duoduoluo
 language: zh-CN
-timezone: ''
+timezone: Asia/Shanghai
 
-
-subnav:
-  github: https://github.com/sleepyddl
-  mail: mailto:me@duoduoluo.cn
-  #weibo: "#"
-  #rss: "#"
-  #zhihu: "#"
-  #qq: "#"
-  #weixin: "#"
-  #jianshu: "#"
-  #douban: "#"
-  #segmentfault: "#"
-  #bilibili: "#"
-  #acfun: "#"
-  #facebook: "#"
-  #google: "#"
-  #twitter: "#"
-  #linkedin: "#"
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -36,7 +18,7 @@ url: https://duoduoluo.cn
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
-  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
 
 # Directory
@@ -128,6 +110,7 @@ deploy:
   repo: https://github.com/sleepyddl/sleepyddl.github.io
   branch: master
   message: 
+
 
 jsonContent:
   meta: false
