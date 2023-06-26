@@ -8,12 +8,13 @@ subtitle: ''
 description: ''
 keywords:
 author: duoduoluo
-language: zh
+language: zh-CN
 timezone: ''
 
 
 subnav:
-  github: "https://github.com/sleepyddl"
+  github: https://github.com/sleepyddl
+  mail: mailto:me@duoduoluo.cn
   #weibo: "#"
   #rss: "#"
   #zhihu: "#"
@@ -24,7 +25,6 @@ subnav:
   #segmentfault: "#"
   #bilibili: "#"
   #acfun: "#"
-  mail: "mailto:me@duoduoluo.cn"
   #facebook: "#"
   #google: "#"
   #twitter: "#"
@@ -32,7 +32,7 @@ subnav:
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://duoduoluo.cn
+url: https://duoduoluo.cn
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -124,7 +124,7 @@ deploy:
   type: git
   repo: https://github.com/sleepyddl/sleepyddl.github.io
   branch: master
-  message: deploy
+  message: 
 
 jsonContent:
   meta: false
