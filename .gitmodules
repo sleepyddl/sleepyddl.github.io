@@ -1,0 +1,3 @@
+[submodule "themes/luo"]
+	path = themes/luo
+	url = git@github.com:sleepyddl/hexo-theme-luo.git
