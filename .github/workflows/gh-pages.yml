@@ -14,18 +14,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: pnpm
+          cache: npm
 
       - name: Install
-        run: pnpm install
-
-      - name: algolia
-        env:
-          HEXO_ALGOLIA_INDEXING_KEY: ${{ secrets.HEXO_ALGOLIA_INDEXING_KEY }}
-        run: npm run algolia --if-present
-
+        run: npm install
+        
       - name: Build
-        run: pnpm run build
+        run: npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
