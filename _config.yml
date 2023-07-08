@@ -7,7 +7,7 @@ title: 多多洛的小站
 subtitle: 希望可以做一些有趣、有意义的事情
 description: 多多洛、duoduoluo、困困的多多洛、sleepyddl
 keywords: 面向百度编程、擅长复制粘贴、无情的cruder
-author: duoduoluo
+author: sleepyddl
 language: zh-CN
 timezone: Asia/Shanghai
 
@@ -15,50 +15,56 @@ timezone: Asia/Shanghai
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://duoduoluo.cn
-permalink: :year/:month/:day/:title/
+root: /
+permalink: posts/:title
 permalink_defaults:
 pretty_urls:
   trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
-  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+  trailing_html: false # Set to false to remove trailing '.html' from permalinks
 
 # Directory
+# source_dir  资源文件夹，这个文件夹用来存放内容。
 source_dir: source
+# public_dir  公共文件夹，这个文件夹用于存放生成的站点文件。
 public_dir: public
+# tag_dir 
 tag_dir: tags
+# archive_dir  归档文件夹
 archive_dir: archives
+# category_dir  分类文件夹
 category_dir: categories
+# code_dir  Include code 文件夹，source_dir 下的子目录
 code_dir: downloads/code
+# i18n_dir  国际化（i18n）文件夹
 i18n_dir: :lang
 skip_render: readme.md
 
-avatar: /img/avatar.png
-favicon: /img/favicon.ico
 
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
-titlecase: false # Transform title into titlecase
+auto_spacing: true
+titlecase: true # Transform title into titlecase
 external_link:
   enable: true # Open external links in new tab
   field: site # Apply to the whole site
-  exclude: ''
-filename_case: 0
+  exclude: []
+filename_case: 1
 render_drafts: false
 post_asset_folder: true
-relative_link: true
+relative_link: false
 future: true
 highlight:
   enable: true
-  line_number: true
   auto_detect: false
-  tab_replace: ''
+  line_number: true
+  line_threshold: 0
+  tab_replace: '  '
   wrap: true
   hljs: false
 prismjs:
   enable: false
-  preprocess: true
-  line_number: true
-  tab_replace: ''
+
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -68,15 +74,12 @@ index_generator:
   path: ''
   per_page: 10
   order_by: -date
-
+  pagination_dir: page
+  
 # Category & Tag
 default_category: uncategorized
 category_map:
 tag_map:
-
-# Metadata elements
-## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
-meta_generator: true
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
@@ -87,10 +90,16 @@ time_format: HH:mm:ss
 ## updated_option supports 'mtime', 'date', 'empty'
 updated_option: 'mtime'
 
+
 # Pagination
 ## Set per_page to 0 to disable pagination
 per_page: 10
 pagination_dir: page
+
+# Metadata elements
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
 
 # Include / Exclude file(s)
 ## include:/exclude: options only apply to the 'source/' folder
